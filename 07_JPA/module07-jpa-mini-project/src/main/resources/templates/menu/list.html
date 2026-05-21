@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>전체 메뉴 조회 - 원티드 레스토랑</title>
+    <style>
+        /* 아까 알려드린 깔끔한 테이블 스타일을 여기에 넣으시면 됩니다! */
+        body { font-family: sans-serif; padding: 50px; background: #f8f9fa; }
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 15px; border-bottom: 1px solid #eee; text-align: center; }
+        th { background: #fcfcfc; color: #888; font-size: 0.8rem; }
+        .status-y { color: green; font-weight: bold; }
+        .status-n { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🍴 전체 메뉴 목록</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>메뉴명</th>
+            <th>가격</th>
+            <th>카테고리</th>
+            <th>상태</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="menu : ${menuList}">
+            <td th:text="${menu.menuCode}"></td>
+            <td th:text="${menu.menuName}" style="font-weight: bold;"></td>
+            <td th:text="${#numbers.formatInteger(menu.menuPrice, 0, 'COMMA') + '원'}"></td>
+            <td th:text="${menu.categoryCode}"></td>
+            <td>
+                        <span th:text="${menu.orderableStatus == 'Y' ? '판매중' : '품절'}"
+                              th:class="${menu.orderableStatus == 'Y' ? 'status-y' : 'status-n'}"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

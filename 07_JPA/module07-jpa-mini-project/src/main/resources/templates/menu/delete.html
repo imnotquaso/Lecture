@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>메뉴 삭제 - 원티드 레스토랑</title>
+    <style>
+        :root {
+            --danger-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --bg-color: #fdfaf9;
+        }
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .delete-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .icon-box {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--dark-color);
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 10px;
+            margin-left: 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--danger-color);
+        }
+
+        .delete-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--danger-color);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .delete-btn:hover {
+            background-color: #c0392b;
+            transform: scale(1.02);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #bdc3c7;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--dark-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="delete-container">
+    <div class="icon-box">⚠️</div>
+    <h1>메뉴 삭제</h1>
+    <p>삭제된 데이터는 복구할 수 없습니다.<br>삭제할 메뉴의 번호를 신중히 입력해 주세요.</p>
+
+    <form action="/menu/delete" method="post" id="deleteForm">
+        <div class="form-group">
+            <label>메뉴 번호 (Code)</label>
+            <input type="number" name="menuCode" placeholder="예: 113" required>
+        </div>
+
+        <button type="submit" class="delete-btn">메뉴 영구 삭제</button>
+    </form>
+
+    <a href="/" class="back-link">취소하고 돌아가기</a>
+</div>
+
+<script>
+    // 삭제 전 한 번 더 확인하는 알림창
+    document.getElementById('deleteForm').onsubmit = function() {
+        const menuCode = this.menuCode.value;
+        return confirm(menuCode + "번 메뉴를 정말로 삭제하시겠습니까?\n이 작업은 취소할 수 없습니다.");
+    };
+</script>
+</body>
+</html>

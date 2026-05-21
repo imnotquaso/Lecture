@@ -1,0 +1,3 @@
+rootProject.name = 'module01-JDBC-connection'
+include 'module02-statement'
+

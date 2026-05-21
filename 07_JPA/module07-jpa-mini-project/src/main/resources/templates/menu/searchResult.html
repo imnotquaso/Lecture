@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>메뉴 검색 결과</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #e67e22;
+            --bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 60px 20px;
+            margin: 0;
+        }
+
+        .content-wrapper {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+            text-align: left;
+        }
+
+        .price-text {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: #888;
+            padding: 15px 10px;
+            border-bottom: 2px solid #eee;
+            text-align: center;
+        }
+
+        td {
+            padding: 20px 10px;
+            border-bottom: 1px solid #f1f1f1;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: #fcfcfc;
+        }
+
+        .menu-name {
+            font-weight: 600;
+            color: #222;
+        }
+
+        .badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .status-y { background: #e8f5e9; color: #2e7d32; }
+        .status-n { background: #ffebee; color: #c62828; }
+
+        .btn-home {
+            display: inline-block;
+            margin-top: 40px;
+            text-decoration: none;
+            color: #999;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .btn-home:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+<div class="content-wrapper">
+    <h3 th:text="'🔍 ' + ${#numbers.formatInteger(price, 0, 'COMMA')} + '원 초과 메뉴 목록'"></h3>
+
+    <table>
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>메뉴 이름</th>
+            <th>가격</th>
+            <th>카테고리</th>
+            <th>상태</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="result : ${menuList}">
+            <td th:text="${result.menuCode}"></td>
+            <td class="menu-name" th:text="${result.menuName}"></td>
+            <td th:text="${#numbers.formatInteger(result.menuPrice, 0, 'COMMA') + '원'}"></td>
+            <td th:text="${result.categoryCode}"></td>
+            <td>
+                        <span th:text="${result.orderableStatus == 'Y' ? '판매중' : '품절'}"
+                              th:classappend="${result.orderableStatus == 'Y' ? 'badge status-y' : 'badge status-n'}">
+                        </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div style="text-align: center;">
+        <a href="/" class="btn-home">메인으로 돌아가기</a>
+    </div>
+</div>
+
+</body>
+</html>

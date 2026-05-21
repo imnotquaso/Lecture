@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>메뉴 수정 - 원티드 레스토랑</title>
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --accent-color: #3498db;
+      --bg-color: #f4f7f6;
+    }
+
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background-color: var(--bg-color);
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .modify-container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 30px;
+      letter-spacing: -1px;
+    }
+
+    .icon-header {
+      display: block;
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #666;
+      margin-bottom: 8px;
+      margin-left: 5px;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #edf2f7;
+      border-radius: 12px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      background-color: #f0f7ff;
+    }
+
+    input::placeholder {
+      color: #cbd5e0;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      background-color: #1a252f;
+      transform: translateY(-2px);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .info-text {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #a0aec0;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="modify-container">
+  <span class="icon-header">📝</span>
+  <h1>메뉴 정보 수정</h1>
+
+  <form action="/menu/modify" method="post">
+    <div class="form-group">
+      <label>수정할 메뉴 번호</label>
+      <input type="number" name="menuCode" placeholder="예: 10" required>
+    </div>
+
+    <div class="form-group">
+      <label>새로운 메뉴 이름</label>
+      <input type="text" name="menuName" placeholder="변경할 이름을 입력하세요" required>
+    </div>
+
+    <button type="submit" class="submit-btn">수정 요청하기</button>
+  </form>
+
+  <p class="info-text">번호를 정확히 입력해야 수정이 반영됩니다.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>원티드 메뉴 레스토랑</title>
+    <style>
+        :root {
+            --accent-color: #8b4513; /* 브라운 포인트 */
+            --bg-color: #fcfaf8;
+            --btn-bg: #ffffff;
+            --btn-hover: #f3ece7;
+        }
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .main-container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2열 배치 */
+            gap: 15px;
+        }
+
+        /* 큰 버튼들은 한 줄을 다 차지하게 설정 */
+        .full-width {
+            grid-column: span 2;
+        }
+
+        button {
+            padding: 15px 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid #e0d5cd;
+            border-radius: 12px;
+            background-color: var(--btn-bg);
+            color: #5d4037;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        button:hover {
+            background-color: var(--btn-hover);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.1);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* 특정 강조 버튼 스타일 */
+        .regist-btn { background-color: #8b4513; color: white; border: none; }
+        .regist-btn:hover { background-color: #6d360e; color: white; }
+
+        .delete-btn { color: #d32f2f; }
+        .delete-btn:hover { background-color: #ffebee; border-color: #d32f2f; }
+
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <h1>😈 원티드 메뉴 레스토랑 😈</h1>
+
+    <div class="button-grid">
+        <button class="full-width" onclick="location.href='/menu/list'">📋 전체 메뉴 조회</button>
+        <button onclick="location.href='/menu/13'">🔍 특정 메뉴(13)</button>
+        <button onclick="location.href='/menu/querymethod'">🧪 쿼리 메소드</button>
+
+        <button class="regist-btn full-width" onclick="location.href='/menu/regist'">➕ 새 메뉴 등록</button>
+        <button onclick="location.href='/menu/modify'">📝 메뉴 수정</button>
+        <button class="delete-btn" onclick="location.href='/menu/delete'">🗑️ 메뉴 삭제</button>
+    </div>
+</div>
+
+</body>
+</html>

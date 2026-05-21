@@ -1,0 +1,43 @@
+package com.wanted.a_connection;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Application02 {
+
+    public static void main(String[] args) {
+
+        /* MySQL 접속을 위한 connection 객체 생성*/
+
+        // finally 블럭에서 자원 해제를 위해 null 로 초기화
+        Connection con = null;
+
+        String driver ="com.mysql.cj.jdbc.Driver";
+        String url ="jdbc:mysql://localhost/employee";
+        String user = "wanted";
+        String password = "wanted";
+        // 사용할 드라이버 등록
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // connection 은 인터페이스이기 떄문에 직접 객체를 생성하지 못한다.
+            // 따라서 connection 생성해주는 DriverManager 를 통해
+            // 우리가 사용할 DB 의 정보를 넘겨주며 객체를 생성한다.
+            con = DriverManager.getConnection(
+                    url,
+                    user,
+                    password);
+
+
+            System.out.println("con = " + con);
+
+        }catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+}
