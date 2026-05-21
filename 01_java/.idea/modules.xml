@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/01_java.iml" filepath="$PROJECT_DIR$/.idea/01_java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practice/Practice.iml" filepath="$PROJECT_DIR$/Practice/Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module01-java-basic/module01-java-basic.iml" filepath="$PROJECT_DIR$/module01-java-basic/module01-java-basic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module02-control-flow-and-method/module02-control-flow-and-method.iml" filepath="$PROJECT_DIR$/module02-control-flow-and-method/module02-control-flow-and-method.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module03-object-oriented-programming/module03-object-oriented-programming.iml" filepath="$PROJECT_DIR$/module03-object-oriented-programming/module03-object-oriented-programming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module04-generic-and-collection/module04-generic-and-collection.iml" filepath="$PROJECT_DIR$/module04-generic-and-collection/module04-generic-and-collection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module05-exception-and-file-io/module05-exception-and-file-io.iml" filepath="$PROJECT_DIR$/module05-exception-and-file-io/module05-exception-and-file-io.iml" />
+    </modules>
+  </component>
+</project>
