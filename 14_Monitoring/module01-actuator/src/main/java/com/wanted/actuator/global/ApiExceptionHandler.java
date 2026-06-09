@@ -3,6 +3,7 @@ package com.wanted.actuator.global;
 import com.wanted.actuator.global.log.RequestLoggingFilter;
 import com.wanted.actuator.metric.ShopMetrics;
 //import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;

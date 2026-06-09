@@ -9,6 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.jboss.logging.MDC;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.util.UUID;
+
 @Slf4j
 @Component
 public class RequestLoggingFilter {
